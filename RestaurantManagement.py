@@ -130,18 +130,18 @@ entry12.place(x=500,y=220)
 canvas.create_text(370,300,fill="snow",font="Times 10 bold",text="Service Tax - 1%                    Tax - 18%")  #TEXT FOR TAX APPLIED
 
 price = Button(root, text="PRICE",command=cal.price)                                        #BUTTON FOR PRICE
-canvas.create_window(100, 350, anchor=NW, height=25, width=90, window=price)
+canvas.create_window(130,360, height=25, width=90, window=price)
 
 
 total = Button(root, text="TOTAL",command=cal.cost1)                                        #BUTTON FOR TOTAL
-canvas.create_window(250, 350, anchor=NW, height=25, width=90, window=total)
+canvas.create_window(260, 360, height=25, width=90, window=total)
 
 
 reset = Button(root, text="RESET",command=cal.reset_values)                                 #BUTTON FOR RESET
-canvas.create_window(450, 350, anchor=NW, height=25, width=90, window=reset)
+canvas.create_window(450, 360, height=25, width=90, window=reset)
 
 
 exit1 = Button(root, text="EXIT",command=cal.close_window)                                  #BUTTON FOR EXIT
-canvas.create_window(600, 350, anchor=NW, height=25, width=90, window=exit1)
+canvas.create_window(600, 360, height=25, width=90, window=exit1)
 
 root.mainloop()
