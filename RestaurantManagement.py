@@ -51,13 +51,9 @@ root = Tk()
 root.title('RESTAURANT MANAGEMENT')
 root.resizable(False, False)
 root.geometry('800x500')
-root.columnconfigure(0, weight=1)   
-root.rowconfigure(0, weight=1)      
-
-
-
-canvas = Canvas(root, bg='DarkOrchid4')   
-canvas.grid(sticky=NSEW)
+   
+canvas = Canvas(root, bg='DarkOrchid4',height=500,width=800)   
+canvas.grid()
 
 
 canvas.create_text(400,15,fill="chocolate2",font="Times 20 italic bold",   #TEXT FOR THE TITLE
