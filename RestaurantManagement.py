@@ -9,18 +9,51 @@ class calculation:                      #class with all the functions
     def __init__(self):
         self.totalAmount=0
         
+    def finalExit(self):
+        
+        calculation.second.destroy()
+        messagebox.showinfo("TOTAL BILL ","-----THANKS FOR USING OUR SERVICE----\n\n"+"ORDER NO. "+str(entry1.get())+"\nTOTAL AMOUNT TO BE RECEIVED\nRs. "+str(self.totalAmount)+"\nMODE OF PAYMENT-"+str(mode.get()))
+        root.destroy()
     def close_window(self):
         try:
             if(entry1.get()=='' and entry2.get()>='0'):
                 raise ValueError
             elif(entry1.get()=='' and entry2.get()==''):
                 messagebox.showinfo("THANKS","-----THANKS FOR USING OUR SERVICE----")
+                root.destroy()
+            elif(entry12.get()==''):
+                raise AttributeError
             else:
-                messagebox.showinfo("TOTAL BILL ","-----THANKS FOR USING OUR SERVICE----\n\n"+"ORDER NO. "+str(entry1.get())+"\nTOTAL AMOUNT TO BE RECEIVED\nRs. "+str(self.totalAmount))
+                self.modeOfPayment()
+                
         except ValueError:
             messagebox.showinfo("ERROR","ORDER NUMBER IS EMPTY")
-        else:
-            root.destroy()
+        except AttributeError:
+            messagebox.showinfo("ERROR","PLEASE CALCULATE TOTAL")
+        
+    
+    
+    
+    def modeOfPayment(self):
+        global mode
+        calculation.second=Tk()
+        mode=StringVar(master=calculation.second)
+        calculation.second.title('MODE OF PAYMENT')
+        calculation.second.resizable(False, False)
+        calculation.second.geometry('400x300')
+        canvas = Canvas(calculation.second, bg='DarkOrchid4',height=300,width=400)   
+        canvas.grid()
+        canvas.create_text(200,20,fill="snow",font="Times 12 bold",text="PLEASE ENTER YOUR MODE OF PAYMENT")   
+        Radiobutton(calculation.second,text="CASH",value="CASH",bg='DarkOrchid1',variable=mode,indicatoron=0,width=25,command=self.finalExit).place(x=100,y=50)
+        Radiobutton(calculation.second,text="DEBIT CARD",value="DEBIT CARD",bg='DarkOrchid1',variable=mode,indicatoron=0,width=25,command=self.finalExit).place(x=100,y=80)
+        Radiobutton(calculation.second,text="CREDIT CARD",value="CREDIT CARD",bg='DarkOrchid1',variable=mode,indicatoron=0,width=25,command=self.finalExit).place(x=100,y=110)
+        Radiobutton(calculation.second,text="NETBANKING",value="NETBANKING",bg='DarkOrchid1',variable=mode,indicatoron=0,width=25,command=self.finalExit).place(x=100,y=140)
+        Radiobutton(calculation.second,text="PAYTM/UPI",value="PAYTM/UPI",bg='DarkOrchid1',variable=mode,indicatoron=0,width=25,command=self.finalExit).place(x=100,y=170)
+                                               
+        calculation.second.mainloop()
+        
+
+        
     def cost1(self):
         try:
             global totalAmount
@@ -43,7 +76,7 @@ class calculation:                      #class with all the functions
     def price(self):
         messagebox.showinfo("Price List","French Meal-Rs.120 \n\nLunch Meal-Rs.80 \n\nBurger Meal-Rs.50 \n\nPizza Meal-Rs.150 \n\nCheese Burger-Rs.30 \n\nDrinks-Rs.35")
 
-
+mode='Not Applicable'                   #global variable for mode of payment
 
 cal=calculation()
 
