@@ -21,11 +21,6 @@ class calculation:                      #class with all the functions
             messagebox.showinfo("ERROR","ORDER NUMBER IS EMPTY")
         else:
             root.destroy()
-            
-    def text(self):
-        w = ttk.Label(root, text="Hello how are you")
-        w.place(x=100,y=200)
-
     def cost1(self):
         try:
             global totalAmount
