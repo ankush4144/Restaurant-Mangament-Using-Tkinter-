@@ -136,7 +136,7 @@ canvas.create_text(450,230,fill="snow",font="Times 10 bold",text="Total")       
 entry12=Entry(root,width=30,textvariable=Total,state=DISABLED)
 entry12.place(x=500,y=220)
 
-
+canvas.create_text(370,300,fill="snow",font="Times 10 bold",text="Service Tax - 1%                    Tax - 18%")  #TEXT FOR TAX APPLIED
 
 price = Button(root, text="PRICE",command=cal.price)                                        #BUTTON FOR PRICE
 canvas.create_window(100, 350, anchor=NW, height=25, width=90, window=price)
